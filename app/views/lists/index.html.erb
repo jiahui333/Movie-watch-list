@@ -1,0 +1,7 @@
+<div class="container">
+  <% @lists.each do |list|  %>
+  <p><%= link_to list.name,
+    list_bookmarks_path(list)%></p>
+  <% end %>
+
+</div>
