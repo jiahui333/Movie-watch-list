@@ -1,7 +1,11 @@
 <div class="container">
   <% @lists.each do |list|  %>
-  <p><%= link_to list.name,
-    list_bookmarks_path(list)%></p>
+  <p>
+  <%= link_to list.name, list_path(list)%>
+  </p>
+  <p>
+  <%= link_to 'Delete', list_path(list), method: :delete, data: {confirm: "Are you sure?"} %>
+  </p>
   <% end %>
-
+  <%= link_to "Add a new list", new_list_path, class: "btn btn-primary"%>
 </div>

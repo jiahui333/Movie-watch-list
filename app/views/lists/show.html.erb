@@ -1,0 +1,11 @@
+<div class="container w-50" >
+<p><%= link_to "Add a bookmark", new_list_bookmark_path(@list)%></p>
+
+
+<% @list.movies.each do |movie| %>
+<div class="card">
+  <p><%= movie.title %></p>
+  <p>"<%= Bookmark.find_by(movie: movie, list:@list).comment %>"</p>
+</div>
+<% end %>
+</div>

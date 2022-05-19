@@ -1,38 +1,42 @@
 class ListsController < ApplicationController
-  # before_action :set_task, only: [ :show, :edit, :update, :destroy ]
-
   def index
     @lists = List.all
   end
 
-  # def show
-  #   # @bookmarks = Bookmark.all
-  # end
+  def show
+    @list = List.find(params[:id])
+    # @bookmark = Bookmark.find_by(movie: @movie)
+  end
 
-  # def new
-  #   @list = List.new
-  # end
+  def new
+    @list = List.new
+  end
 
-  # def create
-  #   @movie = Movie.new(movie_params)
-  #   @movie.save
-  #   redirect_to lists_path
-  # end
+  def create
+    @list = List.new(list_params)
+    if @list.save
+      redirect_to list_path(@list)
+    else
+      render :new
+    end
+  end
 
-  # def destroy
-  #   @movie = Movie.find(params[:id])
-  #   @movie.destroy
-  #   redirect_to lists_path
-  # end
+  def destroy
+    @list = List.find(params[:id])
+    @list.destroy
+    redirect_to lists_path
+  end
 
-  # private
+  private
 
   # # def set_task
   # #   @task = Task.find(params[:id])
   # # end
 
-  # def movie_params
-  #   params.require(:movie).permit(:title, :overview, :poster_url, :rating)
-  # end
-  # end
+  def list_params
+    params.require(:list).permit(:name)
+  end
+  def bookmark_params
+    params.require(:bookmark).permit(:comment)
+  end
 end

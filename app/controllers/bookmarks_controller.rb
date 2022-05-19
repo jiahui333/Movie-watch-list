@@ -1,7 +1,8 @@
 class BookmarksController < ApplicationController
-def index
-  @bookmarks = Bookmark.all
-end
+# def index
+#   @list = List.find(params[:list_id])
+#   @bookmarks = @list.movies
+# end
 
 def new
   @movies = Movie.all
@@ -10,13 +11,18 @@ def new
 end
 
 def create
+  @list = List.find(params[:list_id])
   @bookmark = Bookmark.new(bookmark_params)
+  @bookmark.list = @list
+  @bookmark.movie = Movie.find(params["bookmark"][:movie_id])
   @bookmark.save
+  redirect_to list_path(@list)
+  # redirect_to list_bookmarks_path(@list)
 end
 
 
 private
   def bookmark_params
-    params.require(:bookmark).permit(:comment)
+    params.require(:bookmark).permit(:comment, :movie_id, :list_id)
   end
 end
