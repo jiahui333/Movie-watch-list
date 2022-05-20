@@ -1,9 +1,4 @@
 class BookmarksController < ApplicationController
-# def index
-#   @list = List.find(params[:list_id])
-#   @bookmarks = @list.movies
-# end
-
 def new
   @movies = Movie.all
   @bookmark = Bookmark.new
@@ -17,7 +12,6 @@ def create
   @bookmark.movie = Movie.find(params["bookmark"][:movie_id])
   @bookmark.save
   redirect_to list_path(@list)
-  # redirect_to list_bookmarks_path(@list)
 end
 
 def destroy

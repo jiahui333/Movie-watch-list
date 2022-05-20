@@ -5,7 +5,10 @@
 <% @list.movies.each do |movie| %>
 <div class="card">
   <p><%= movie.title %></p>
-  <p>"<%= Bookmark.find_by(movie: movie, list:@list).comment %>"</p>
+  <% bookmark = Bookmark.find_by(movie: movie, list:@list)  %>
+  <p><%= movie.overview %></p>
+  <%= image_tag movie.poster_url, alt: movie.title, class: "movie-img rounded-top w-50" %>
+  <p>"<%= bookmark.comment %>"</p>
   <p><%= link_to "Delete", list_bookmark_path(@list, Bookmark.find_by(movie: movie, list:@list)), method: :delete, data: {confirm: "Are you sure?"}%></p>
 </div>
 <% end %>
