@@ -6,6 +6,7 @@
 <div class="card">
   <p><%= movie.title %></p>
   <p>"<%= Bookmark.find_by(movie: movie, list:@list).comment %>"</p>
+  <p><%= link_to "Delete", list_bookmark_path(@list, Bookmark.find_by(movie: movie, list:@list)), method: :delete, data: {confirm: "Are you sure?"}%></p>
 </div>
 <% end %>
 </div>

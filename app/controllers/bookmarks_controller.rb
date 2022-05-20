@@ -20,6 +20,12 @@ def create
   # redirect_to list_bookmarks_path(@list)
 end
 
+def destroy
+  @bookmark = Bookmark.find(params[:id])
+  @bookmark.destroy
+  redirect_to list_path(params[:list_id])
+end
+
 
 private
   def bookmark_params
