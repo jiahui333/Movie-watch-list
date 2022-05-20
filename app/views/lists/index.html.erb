@@ -28,7 +28,7 @@
   <h2>
   <%= link_to list.name, list_path(list)%>
   </h2>
-  <%= image_tag "https://images.unsplash.com/photo-1485846234645-a62644f84728?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1159", class:"movie-img rounded-top w-50" %>
+  <%= image_tag "https://picsum.photos/300/200", class:"movie-img rounded-top" %>
   <p>
   <%= link_to 'Delete', list_path(list), method: :delete, data: {confirm: "Are you sure?"} %>
   </p>
