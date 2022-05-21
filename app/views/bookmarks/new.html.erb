@@ -1,5 +1,6 @@
 <%= simple_form_for [@list, @bookmark] do |f| %>
-  <%= f.select :movie_id, @movies.collect { |movie| [movie.title, movie.id] } %>
+  <%= f.association :movie %>
+  <%#= f.select :movie_id, @movies.collect { |movie| [movie.title, movie.id] } %>
   <%= f.input :comment %>
   <%= f.submit "Submit", class: "btn btn-primary" %>
 <% end %>
