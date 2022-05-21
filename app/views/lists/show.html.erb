@@ -1,6 +1,6 @@
 <div class="container w-50" >
-<p><%= link_to "Add a bookmark", new_list_bookmark_path(@list)%></p>
-<p><%= link_to "Back to lists", root_path%></p>
+<p><%= link_to "Add a bookmark", new_list_bookmark_path(@list), class: "btn btn-primary mt-4" %></p>
+<p><%= link_to "Back to lists", root_path, class: "btn btn-primary" %></p>
 
 <% @list.movies.each do |movie| %>
 <div class="card">
