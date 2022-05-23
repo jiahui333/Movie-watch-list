@@ -2,6 +2,7 @@
   <h1 class="m-3">Movie Lists</h1>
   <div class="row">
     <% @lists.each do |list| %>
+       <%= cl_image_tag list.photo.key, height: 300, width: 400, crop: :fill %>
       <div class="card-item co-12 col-sm-6 col-md-4 m-4" style="width: 16rem;">
       <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%=list.photo.attached? ? cl_image_path(list.photo.key, crop: :fill) : asset_path('list_background.jpg') %>')">
       <%= link_to list.name, list_path(list), class:"text-decoration-none text-white text-center"%>
